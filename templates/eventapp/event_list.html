@@ -1,0 +1,21 @@
+{% extends 'eventapp/base.html' %}
+
+{% block content %}
+<h2>Available Events</h2>
+<div class="row">
+  {% for event in events %}
+  <div class="col-md-4">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ event.name }}</h5>
+        <p class="card-text">{{ event.description|truncatewords:15 }}</p>
+        <p class="card-text"><strong>Date:</strong> {{ event.date }} | <strong>Time:</strong> {{ event.time }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ event.location }}</p>
+        <p class="card-text"><strong>Available Seats:</strong> {{ event.available_seats }}</p>
+        <a href="{% url 'eventapp:book_ticket' event.id %}" class="btn btn-primary">Book Ticket</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

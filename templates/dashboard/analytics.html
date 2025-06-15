@@ -1,0 +1,25 @@
+{% extends 'eventapp/base.html' %}
+
+{% block content %}
+<h2>Event Booking Analytics</h2>
+<canvas id="bookingChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const data = {
+    labels: {{ labels|safe }},
+    datasets: [{
+      label: 'Bookings per Event',
+      data: {{ data|safe }},
+      backgroundColor: 'rgba(54, 162, 235, 0.6)',
+    }]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+  };
+
+  new Chart(document.getElementById('bookingChart'), config);
+</script>
+{% endblock %}
