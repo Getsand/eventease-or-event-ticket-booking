@@ -11,7 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY SETTINGS
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "fallback_key")
 DEBUG = os.getenv("DEBUG", "True") == "True"
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
+
 
 # App configuration
 INSTALLED_APPS = [
