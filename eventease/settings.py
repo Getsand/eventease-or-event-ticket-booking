@@ -67,8 +67,9 @@ WSGI_APPLICATION = 'eventease.wsgi.application'
 
 # Database config from .env
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('postgresql://eventease_db_22d2_user:mdb61bNZGbPkFX9Y4XjQei4q83ENbKSN@dpg-d1inc1re5dus73bh4i90-a/eventease_db_22d2'))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
