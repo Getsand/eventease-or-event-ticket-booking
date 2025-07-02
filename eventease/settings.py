@@ -67,15 +67,18 @@ WSGI_APPLICATION = 'eventease.wsgi.application'
 
 # Database config from .env
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT"),
-    }
+    'default': dj_database_url.config(default=os.environ.get('postgresql://eventease_db_22d2_user:mdb61bNZGbPkFX9Y4XjQei4q83ENbKSN@dpg-d1inc1re5dus73bh4i90-a/eventease_db_22d2'))
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv("DB_NAME"),
+#         'USER': os.getenv("DB_USER"),
+#         'PASSWORD': os.getenv("DB_PASSWORD"),
+#         'HOST': os.getenv("DB_HOST"),
+#         'PORT': os.getenv("DB_PORT"),
+#     }
+# }
 
 # Custom user model
 AUTH_USER_MODEL = 'authentification.User'
